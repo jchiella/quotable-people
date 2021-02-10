@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Section, Heading, Container } from 'react-bulma-components';
-
-import 'react-bulma-components/dist/react-bulma-components.min.css';
+import { Section, Heading, Container, Loader } from 'react-bulma-components';
 
 import Quote from './Quote';
 
@@ -21,13 +19,13 @@ export default function App() {
 
   return (
     <Section>
-      <Heading>
-        Hi there!
+      <Heading style={{ textAlign: 'center' }}>
+        The Quotable People of AAAAAAAAA
       </Heading>
 
       <Container>
         {
-          isFetching ? <h1>Loading</h1> :
+          isFetching ? <Loader style={{ margin: 'auto', width: '5rem', height: '5rem' }}/> :
           quotes.filter((q) => !!q).map((q, i) =>
             <Quote
               key={i}
